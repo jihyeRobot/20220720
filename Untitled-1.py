@@ -1,15 +1,42 @@
+def solution(answers):
+    sunho=[1,2,3,4,5]
+    namhyeon=[2,1,2,3,2,4,2,5]
+    jihye=[3,3,1,1,2,2,4,4,5,5] #반복되는 수열
+    
+    
+    score=[0,0,0]  #세 개의 점수 배열로
 
-2
-3
-4
-5
-6
-def solution(array, commands):
-    answer = []
-    for com in commands:
-        answer.append(sorted(array[com[0]-1:com[1]])[com[2]-1])#이 줄 해석하기
-   #append : ()안에 값을 입력하면 새로운 요소를 array 맨끝에 객체로 추가
-   #sorted : 첫번째 매게변수로 들어온 이터러블한 데이터를 새로운 정렬된 리스트로 만들어서 반환해주는 함수
-   #[com[0]-1:com[1]])[com[2]-1] : 선호오빠에게 물어보기
-    return answer
+    for i in range(len(answers)):
+        s1=i%5
+        s2=i%8
+        s3=i%10 #반복되는 수열의 개수를 계산
+     
+     #정답과 수열의 수가 같으면 +1   
+        if sunho[s1]==answers[i]:
+            score[0]+=1 
+        if namhyeon[s2]==answers[i]:
+            score[1]+=1
+        if jihye[s3]==answers[i]:
+            score[2]+=1
+        
+    #가장많이 숫자를 맞춘사람
+    
+    
+    winner=max(score)
+    result=[]
+    
+    #최대값 찾기
+    for i in range(3):
+        if score[i]==max(score):
+            result.append(i+1)
+            
+    return result
 
+answer=[1,3,2,4,2]
+
+print(solution(answer))
+
+
+    """
+    for 
+    """
